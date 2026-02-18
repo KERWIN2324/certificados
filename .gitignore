@@ -5,9 +5,24 @@ venv/
 # Archivos de Python compilados
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
-# Configuración de VS Code
-.vscode/
-
-# Archivos de base de datos local
+# Archivos de base de datos (SQLite u otros locales)
 *.db
+*.sqlite3
+
+# Configuración de IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos del sistema
+*.DS_Store
+Thumbs.db
+
+# Distribuciones y empaquetado
+dist/
+build/
+*.egg-info/
