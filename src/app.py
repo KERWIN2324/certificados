@@ -1,4 +1,3 @@
-# src/app.py
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
@@ -6,15 +5,15 @@ from models import db, User, Curso, UsuarioCurso, Certificado
 from utils import generar_certificado
 from datetime import date
 
-# 1️⃣ Crear app
+# Crear app
 app = Flask(__name__)
 app.secret_key = "mi_clave_secreta"
 
-# 2️⃣ Configuración MySQL
+# Configuración MySQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:TU_PASSWORD@localhost/flask_app'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# 3️⃣ Inicializar extensiones
+# Inicializar extensiones
 db.init_app(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
@@ -24,7 +23,7 @@ login_manager.login_view = "login"
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# 4️⃣ Crear tablas si no existen
+# Crear tablas si no existen
 with app.app_context():
     db.create_all()
 
