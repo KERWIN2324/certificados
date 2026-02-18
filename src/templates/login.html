@@ -1,0 +1,12 @@
+<h2>Login</h2>
+<form method="POST">
+  Email: <input type="email" name="email" required /><br />
+  Contraseña: <input type="password" name="password" required /><br />
+  <button type="submit">Ingresar</button>
+</form>
+<a href="{{ url_for('register') }}">Crear cuenta</a>
+
+{% with messages = get_flashed_messages(with_categories=true) %} {% for
+category, msg in messages %}
+<p>{{ msg }}</p>
+{% endfor %} {% endwith %}
